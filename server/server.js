@@ -6,6 +6,7 @@ const cors = require("cors")
 const express = require("express");
 const chatRouter = require('./routes/chat')
 const userRouter = require('./routes/users')
+const messageRouter = require('./routes/messages')
 
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(express.json({extended:true}))
 app.use(express.urlencoded({extended : true}))
 app.use('/chats',chatRouter)
 app.use('/users',userRouter)
+app.use('/messages',messageRouter)
 
 app.get("/", (request, response) => {
   response.send({ success: true, message: "welcome" });
